@@ -1,8 +1,6 @@
 <?php
-//include_once dirname(__DIR__, 3) . '/vendor/autoload.php';
-//echo dirname(__DIR__, 2);
-//exit;
-require_once dirname(__DIR__, 2) . '/Resource/dataview/tipo_equipamento_dataview.php';
+
+require_once dirname(__DIR__, 2) . '/Resource/dataview/setor_dataview.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +28,7 @@ require_once dirname(__DIR__, 2) . '/Resource/dataview/tipo_equipamento_dataview
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Gerenciar Tipo de Equipamentos</h1>
+              <h1>Gerenciar Setor</h1>
             </div>
 
           </div>
@@ -43,30 +41,32 @@ require_once dirname(__DIR__, 2) . '/Resource/dataview/tipo_equipamento_dataview
         <!-- Default box -->
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Cadastrar um novo registro</h3>
+            <h3 class="card-title">Cadastrar um novo setor.</h3>
           </div>
           <div class="card-body">
 
-            <form method="post" id="formCAD" action="gerenciar_tipo_equipamento.php">
+            <form method="post" id="formCAD" action="gerenciar_setor.php">
               <div class="form-group">
-                <label>Tipo de equipamento</label>
-                <input class="form-control obg" name="tipo" id="tipo" placeholder="Digite aqui...">
+                <label>Setor</label>
+                <input class="form-control obg" placeholder="Digite aqui setor desejado..." name="setor" id="setor">
               </div>
               <button onclick="return NotificarCampos('formCAD')" class="btn btn-success" name="btn_cadastrar">Cadastrar</button>
             </form>
 
           </div>
         </div>
+
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Tipos cadastrados</h3>
+            <h3 class="card-title">Setores cadastrados.</h3>
+
           </div>
           <div class="card-body">
             <div class="row">
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Alterar ou excluir os registros</h3>
+                    <h3 class="card-title">Alterar ou excluir setores</h3>
 
                     <div class="card-tools">
                       <div class="input-group input-group-sm" style="width: 150px;">
@@ -84,17 +84,17 @@ require_once dirname(__DIR__, 2) . '/Resource/dataview/tipo_equipamento_dataview
                       <thead>
                         <tr>
                           <th>Ação</th>
-                          <th>Tipo do equipamento</th>
+                          <th>Setor</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php for ($i = 0; $i < count($tipos_equipamentos); $i++) { ?>
+                        <?php for ($i = 0; $i < count($setores_cadastrados); $i++) { ?>
                           <tr>
                             <td>
-                              <a href="#" data-toggle="modal" data-target="#alterar_tipo" class="btn btn-warning btn-xs" onclick="CarregarTipoEquipamento('<?= $tipos_equipamentos[$i]['id_tipo'] ?>''<?= $tipos_equipamentos[$i]['nome_tipo'] ?>')">Alterar</a>
-                              <a href="#" data-toggle="modal" data-target="#modal_excluir" class="btn btn-danger btn-xs" onclick="CarregarExcluir('<?= $tipos_equipamentos[$i]['id_tipo'] ?>','<?= $tipos_equipamentos[$i]['nome_tipo'] ?>')">Excluir</a>
+                              <a href="#" class="btn btn-warning btn-xs">Alterar</a>
+                              <a href="#" class="btn btn-danger btn-xs">Excluir</a>
                             </td>
-                            <td><?= $tipos_equipamentos[$i]['nome_tipo'] ?></td>
+                            <td><?= $setores_cadastrados[$i]['nome_setor'] ?></td>
                           </tr>
                         <?php } ?>
                       </tbody>
@@ -114,10 +114,6 @@ require_once dirname(__DIR__, 2) . '/Resource/dataview/tipo_equipamento_dataview
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <form id="formAlt" action="gerenciar_tipo_equipamento.php" method="post">
-          <?php include_once 'modals/alterar_tipo.php';?>
-          <?php include_once 'modals/excluir.php';?>
-    </form>
 
     <?php
     include_once PATH . 'Template/_includes/_footer.php';
@@ -129,10 +125,6 @@ require_once dirname(__DIR__, 2) . '/Resource/dataview/tipo_equipamento_dataview
   include_once PATH . 'Template/_includes/_scripts.php';
   include_once PATH . 'Template/_includes/_msg.php';
   ?>
-
-
-
-
 </body>
 
 </html>

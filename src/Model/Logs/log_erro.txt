@@ -1,0 +1,12 @@
+.........................
+Data do erro: 11/04/2025
+Hora do erro: 23:24
+Código do Logado: 1
+Função do erro: CadastrarTipoEquipamento
+Erro Tecnico: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_controleos.tb_tipo123' doesn't exist
+.........................
+Data do erro: 11/04/2025
+Hora do erro: 23:48
+Código do Logado: 1
+Função do erro: CadastrarTipoEquipamento
+Erro Tecnico: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_controleos.tb_tipo123' doesn't exist
