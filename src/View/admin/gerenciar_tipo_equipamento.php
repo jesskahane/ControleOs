@@ -8,7 +8,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
-  <!-- Site wrapper Jess -->
+  <!-- Site wrapper Jess kt -->
   <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
